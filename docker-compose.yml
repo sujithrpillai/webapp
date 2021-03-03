@@ -1,10 +1,15 @@
 version: "3.3"
 services:
   webapp:
-        image: webapp-api
+        build:
+            context: ./app
+            dockerfile: Dockerfile-app
         ports:
             - "9000:9000"
   client:
+        build:
+            context: ./client
+            dockerfile: Dockerfile-client
         image: webapp-client
         ports:
             - "3000:3000"
