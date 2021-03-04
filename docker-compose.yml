@@ -10,8 +10,13 @@ services:
         build:
             context: ./client
             dockerfile: Dockerfile-client
-        image: webapp-client
         ports:
             - "3000:3000"
         links:
             - webapp
+  mongodb:
+        image: mongo
+        container_name: mongodb
+        ports:
+            - 27017:27017
+        command: mongod --noauth

@@ -4,8 +4,10 @@ RUN npx express-generator api
 WORKDIR /api
 RUN npm install
 RUN npm install --save cors
+RUN npm install --save mongoose
 COPY app.js .
 COPY testAPI.js routes/
+COPY testDB.js routes/
 COPY www bin/
 EXPOSE 9000
 CMD ["npm", "start"]
